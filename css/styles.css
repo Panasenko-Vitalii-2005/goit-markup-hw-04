@@ -43,6 +43,10 @@ a {
 
 .page-header {
   border-bottom: 1px solid #e7e9fc;
+  box-shadow:
+    0 1px 6px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16),
+    0 2px 1px 0 rgba(46, 47, 66, 0.08);
 }
 
 .header-container {
@@ -61,6 +65,21 @@ a {
   gap: 40px;
 }
 
+.nav-link.current {
+  position: relative;
+}
+
+.nav-link.current::after {
+  content: "";
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  background-color: #404bbf;
+}
+
 .nav-link {
   display: block;
   padding: 24px 0;
@@ -69,6 +88,7 @@ a {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #2e2f42;
+  transition: color 0.25s cubic-bezier(0, 0.4, 0.2, 1);
 }
 
 .header-logo {
@@ -121,14 +141,21 @@ a {
 .nav-link:focus,
 .nav-link:hover,
 .contacts-link:focus,
-.contacts-link:hover {
+.contacts-link:hover,
+.nav-link.current {
   color: #404bbf;
 }
 
 .hero {
   background-color: #2e2f42;
+  background-image:
+    linear-gradient(to bottom, rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+    url("../images/people-office\ 1.jpg");
+  background-size: cover;
+  background-position: center;
   padding: 188px 0;
-  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .hero-container {
@@ -190,6 +217,18 @@ a {
   display: flex;
   flex-direction: row;
   gap: 24px;
+}
+
+.feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f4fd;
+  border: 1px solid #8e8f99;
+  border-radius: 4px;
+  width: 100%;
+  padding: 24px 0;
+  height: 112px;
 }
 
 .feature-item {
@@ -261,6 +300,48 @@ a {
   color: #434455;
 }
 
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.social-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.social-item {
+  width: 40px;
+  height: 40px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  color: #ffffff;
+  background-color: #4d5ae5;
+  transition: background-color 0.25s cubic-bezier(0, 0.4, 0.2, 1);
+}
+
+.social-link:hover,
+.social-link:focus {
+  background-color: #31d0aa;
+}
+
+.social-link svg {
+  fill: currentColor;
+  width: 16px;
+  height: 16px;
+}
+
 .portfolio {
   background-color: #fff;
 }
@@ -279,6 +360,35 @@ a {
   flex-wrap: wrap;
   column-gap: 24px;
   row-gap: 48px;
+}
+
+.portfolio-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #4d5ae5;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  padding: 40px;
+  opacity: 0;
+  transform: translateY(100%);
+  transition:
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-item:hover .overlay-text {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .portfolio-description {
@@ -321,6 +431,31 @@ a {
 .page-footer {
   background-color: #2e2f42;
   padding: 100px 0;
+}
+
+.footer-container {
+  display: flex;
+}
+
+.social-media-text {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+
+.social-media {
+  margin-left: 120px;
+}
+
+.social-media .social-list {
+  margin-top: 16px;
+}
+
+.social-media .social-link svg {
+  width: 24px;
+  height: 24px;
 }
 
 .footer-description {
